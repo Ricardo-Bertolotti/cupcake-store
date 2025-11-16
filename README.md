@@ -77,6 +77,12 @@ Acesse o front-end
 
 Abra o arquivo frontend/html/index.html diretamente no navegador
 
+## Usúario Admin padrão:
+
+Usuário : cupcake_store_ad@hotmail.com
+
+Senha   : admin123
+
 ---
 
 ## 🛠️ Tecnologias utilizadas
