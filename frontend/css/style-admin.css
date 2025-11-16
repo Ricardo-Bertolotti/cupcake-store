@@ -1,0 +1,184 @@
+/* Estilos gerais do painel admin — tema escuro e tipografia */
+.admin-body {
+  background: #0d0d0f;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Barra superior do painel admin */
+.admin-navbar {
+  background: #1b1b1b;
+  padding: 15px 40px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-navbar .logo {
+  font-weight: 600;
+  color: #ffb6c1;
+  font-size: 1.2rem;
+}
+
+/* Links do menu superior */
+#menuAdmin a {
+  color: #ccc;
+  margin-left: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-size: 0.95rem;
+}
+
+#menuAdmin a:hover {
+  color: #ff5f8d;
+  background: rgba(255, 95, 141, 0.08);
+}
+
+/* Link ativo da navbar */
+#menuAdmin a.active {
+  background: #ff4b7c;
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(255, 75, 124, 0.6);
+}
+
+/* Botão de logout */
+.logout-link {
+  color: #ff9abf !important;
+  font-weight: 600;
+}
+
+/* Área principal do painel */
+.admin-main {
+  flex: 1;
+  padding: 40px 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Contêiner central das páginas */
+.admin-page-wrapper {
+  width: 100%;
+  max-width: 1150px;
+}
+
+/* Título de cada página */
+.admin-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  color: #ff4b7c;
+}
+
+/* Painel/container padrão das páginas */
+.admin-panel {
+  margin-top: 20px;
+  background: #1a1a1d;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Tabela base do painel */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+  color: #fff;
+  background: #1a1a1d;
+  text-align: center;
+}
+
+/* Cabeçalho da tabela */
+.admin-table th {
+  background: #ff4b7c !important;
+  color: white;
+  border-bottom: none;
+  text-align: center;
+}
+
+/* Células */
+.admin-table td {
+  background: #1a1a1d;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+/* Hover da linha */
+.admin-table tr:hover td {
+  background: #242427;
+  transition: 0.2s;
+}
+
+/* Inputs dentro da tabela */
+.admin-table input,
+.admin-table select {
+  background: #2d2d31 !important;
+  border: 1px solid #444 !important;
+  color: #fff !important;
+  padding: 6px 8px;
+  border-radius: 6px;
+  width: 95%;
+  text-align: center;
+}
+
+/* Botões gerais */
+.btn-admin {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-admin:hover {
+  opacity: 0.9;
+}
+
+/* Botão adicionar */
+.btn-admin-add {
+  background: #ff4b7c;
+  color: #fff;
+  float: right;
+  margin-bottom: 10px;
+}
+
+/* Botão salvar */
+.btn-admin-save {
+  background: #45dd91;
+  color: #000;
+}
+
+/* Botão excluir */
+.btn-admin-delete {
+  background: #ff3d3d;
+  color: #fff;
+}
+
+/* Indicadores ON/OFF */
+.toggle {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toggle.on {
+  color: #45dd91;
+}
+
+.toggle.off {
+  color: #ff3d3d;
+}
+
+/* Rodapé */
+footer.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}

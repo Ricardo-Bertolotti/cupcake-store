@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cupons - 🎁 Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <style>
+    /* Título da página */
+    h1.page-title {
+      text-align: center;
+      margin-top: 40px;
+      color: #ff4b7c;
+      font-size: 2.2rem;
+    }
+
+    /* Container dos cards — grid responsivo */
+    #listaCupons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1050px;
+      margin: 35px auto;
+      padding: 0 16px;
+    }
+
+    /* Estilização do card do cupom */
+    .cupom-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 25px 20px;
+      text-align: center;
+      transition: 0.25s;
+      border: 2px solid #ffe0eb;
+    }
+
+    .cupom-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    /* Código do cupom */
+    .cupom-codigo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ff2d6d;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* Linha do desconto */
+    .cupom-desconto {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    /* Validade do cupom */
+    .cupom-validade {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    /* Botão de copiar/aplicar*/
+    .cupom-btn {
+      margin-top: 10px;
+      background: #ff8fab;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .cupom-btn:hover {
+      background: #ff4b7c;
+      transform: scale(1.05);
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- Navbar padrão da loja -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <nav id="menuNav">
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html">🧁 Cardápio</a>
+    <a href="favoritos.html">💖 Favoritos</a>
+    <a href="cupom.html" class="active">🎟️ Cupons</a>
+    <a href="historico.html">🧾 Histórico</a>
+    <a href="carrinho.html">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html">👤 Perfil</a>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Título da página -->
+  <h1 class="page-title">Cupons Disponíveis 🎁</h1>
+
+  <!-- Grid onde os cupons serão carregados via JS -->
+  <div id="listaCupons"></div>
+</main>
+
+<footer class="footer">
+  <p>Feito com 💜 por RB7</p>
+</footer>
+
+<!-- Lógica para buscar e renderizar cupons -->
+<script src="../js/cupom.js"></script>
+
+</body>
+</html>

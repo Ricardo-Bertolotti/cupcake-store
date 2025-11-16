@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações básicas -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <style>
+    /* Seção principal com destaque visual (hero) */
+    .hero {
+      background: linear-gradient(135deg, #ffb6c1, #ff5f8d);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    /* Imagem principal da Home */
+    .hero img {
+      width: 40%;
+      max-width: 600px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Botão de CTA (call to action) */
+    .btn-hero {
+      background: white;
+      color: #ff4b7c;
+      border: none;
+      font-weight: 700;
+      padding: 12px 25px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-hero:hover {
+      background: #ffe0e8;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Cabeçalho padrão -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <nav id="menuNav">
+    <a href="index.html" class="active">🏠 Início</a>
+    <a href="cardapio.html">🧁 Cardápio</a>
+    <a href="favoritos.html">💖 Favoritos</a>
+    <a href="cupom.html">🎟️ Cupons</a>
+    <a href="historico.html">🧾 Histórico</a>
+    <a href="carrinho.html">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html">👤 Perfil</a>
+  </nav>
+</header>
+
+<!-- Hero principal, forte impacto visual -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Os cupcakes mais doces da cidade 🍓</h1>
+
+    <p>
+      Sabores que encantam, cores que apaixonam.<br>
+      Leve um pedacinho de felicidade para sua casa!
+    </p>
+
+    <!-- CTA principal da home -->
+    <a href="cardapio.html">
+      <button class="btn-hero">Ver Cardápio</button>
+    </a>
+  </div>
+
+  <img src="../assets/img/cupcakes-home.jpg" alt="Cupcakes deliciosos" />
+</section>
+
+<footer class="footer">
+  <p></p>
+</footer>
+
+<script>
+  // Mostra o Painel Admin somente para usuários com nível "admin"
+  document.addEventListener("DOMContentLoaded", () => {
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const nav = document.getElementById("menuNav");
+
+    if (usuario && usuario.nivel === "admin") {
+      const adminLink = document.createElement("a");
+      adminLink.href = "admin/admin.html";
+      adminLink.textContent = "⚙️ Painel Admin";
+      adminLink.style.color = "#ff5f8d";
+      adminLink.style.fontWeight = "600";
+      adminLink.style.marginLeft = "20px";
+      nav.appendChild(adminLink);
+    }
+  });
+</script>
+
+</body>
+</html>

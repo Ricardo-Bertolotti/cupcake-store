@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações básicas -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho 🛒 - Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+</head>
+
+<body>
+
+<!-- Navbar principal -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <!-- Navegação padrão da loja -->
+  <nav id="menuNav">
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html">🧁 Cardápio</a>
+    <a href="favoritos.html">💖 Favoritos</a>
+    <a href="cupom.html">🎟️ Cupons</a>
+    <a href="historico.html">🧾 Histórico</a>
+    <a href="carrinho.html" class="active">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html">👤 Perfil</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- Título da página -->
+  <h2 style="text-align:center; margin:20px 0; font-size:2rem;">Meu Carrinho</h2>
+
+  <!-- Container da tabela para controlar largura em telas grandes -->
+  <div class="table-container" style="width:100%; max-width:1100px; margin:auto;">
+    <table id="tabelaCarrinho">
+      <thead>
+        <tr>
+          <th>Imagem</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Estoque</th> <!-- Coluna adicionada para controle de quantidade -->
+          <th>Total</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+
+      <!-- Conteúdo preenchido dinamicamente pelo JS -->
+      <tbody id="listaCarrinho"></tbody>
+    </table>
+  </div>
+
+  <div class="cart-summary">
+
+    <!-- Subtotal calculado antes de cupom -->
+    <h3>Subtotal: R$ <span id="subtotal">0.00</span></h3>
+
+    <!-- Área para mostrar cupom aplicado -->
+    <div id="desconto" class="discount-applied" style="display:none;"></div>
+
+    <!-- Total final após cupom -->
+    <h2 class="total-linha">
+      Total: <span class="total-valor">R$ <span id="total">0.00</span></span>
+    </h2>
+
+    <!-- Caixa de cupom aplicada -->
+    <div class="cupom-box">
+      <input type="text" id="cupomInput" placeholder="CUPOM10" />
+
+      <!-- Botão para aplicar cupom -->
+      <button id="aplicarCupom" class="btn-primary">Aplicar</button>
+
+      <!-- Botão para remover cupom (mostrado apenas quando necessário) -->
+      <button id="removerCupom"
+              class="btn-danger"
+              style="display:none; background:#d9534f;">
+        Remover
+      </button>
+    </div>
+
+    <!-- Botões principais -->
+    <div class="buttons-final">
+      <button id="continuar" class="btn-secondary">Continuar Comprando</button>
+      <button id="finalizarCompra" class="btn-primary btn-finalizar">Ir para Checkout</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Feito com 💜 por RB7</p>
+</footer>
+
+<!-- Script principal de lógica do carrinho -->
+<script src="../js/carrinho.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meus Favoritos 💖 - Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+</head>
+
+<body>
+
+<!-- Navbar principal da loja -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <nav id="menuNav">
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html">🧁 Cardápio</a>
+    <a href="favoritos.html" class="active">💖 Favoritos</a>
+    <a href="cupom.html">🎟️ Cupons</a>
+    <a href="historico.html">🧾 Histórico</a>
+    <a href="carrinho.html">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html">👤 Perfil</a>
+  </nav>
+</header>
+
+<!-- Conteúdo principal -->
+<main class="container">
+  <h2 style="text-align:center; margin-top:20px;">
+    Meus Cupcakes Favoritos 💖
+  </h2>
+
+  <!-- Grid onde os favoritos serão carregados via JS -->
+  <div id="listaFavoritos" class="products-grid"></div>
+</main>
+
+<!-- Rodapé padrão -->
+<footer class="footer">
+  <p>Feito com 💜 por RB7</p>
+</footer>
+
+<!-- Script da lógica de favoritos -->
+<script src="../js/favoritos.js"></script>
+
+</body>
+</html>

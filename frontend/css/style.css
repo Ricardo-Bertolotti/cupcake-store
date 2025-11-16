@@ -1,0 +1,1018 @@
+/* ====================================================================== */
+/* 1. ROOT / VARIÁVEIS GLOBAIS                                           */
+/* ---------------------------------------------------------------------- */
+/* Paleta de cores e tokens de design usados em todo o site.             */
+/* Facilita personalização da identidade visual.                         */
+/* ====================================================================== */
+:root {
+  --primary: #ff8fab;
+  --primary-dark: #ff6b8b;
+  --secondary: #ffe5ec;
+  --text: #333;
+  --muted: #777;
+  --bg: #fff8f9;
+
+  --card-bg: #fff;
+  --radius: 12px;
+  --shadow: 0 4px 10px rgba(0,0,0,0.08);
+  --transition: all 0.3s ease;
+}
+
+
+/* ====================================================================== */
+/* 2. REGRAS GLOBAIS / RESET                                             */
+/* ---------------------------------------------------------------------- */
+/* Reset básico + tipografia padrão do site.                              */
+/* Remove inconsistências entre navegadores.                             */
+/* ====================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Títulos genéricos */
+h1, h2, h3 {
+  color: var(--text);
+}
+
+/* Parágrafos genéricos */
+p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* ====================================================================== */
+/* 3. NAVBAR / MENU SUPERIOR                                             */
+/* ---------------------------------------------------------------------- */
+/* Barra de navegação principal do site.                                 */
+/* Estilo leve, com destaque para a aba ativa.                           */
+/* ====================================================================== */
+.navbar {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Hover leve */
+.navbar nav a:hover {
+  background: #ffe5ec;
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Aba ativa com destaque visual */
+.navbar nav a.active {
+  background: #ff4b7c;
+  color: #fff;
+  box-shadow: 0 0 0 2px #ffd6e3;
+  transform: translateY(-1px);
+}
+
+/* ====================================================================== */
+/* 4. CONTAINERS / LAYOUT GERAL                                          */
+/* ---------------------------------------------------------------------- */
+/* Containers centrais que controlam largura máxima dos conteúdos.        */
+/* Mantém o conteúdo alinhado e com espaçamento uniforme.                 */
+/* ====================================================================== */
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+
+/* ====================================================================== */
+/* 5. HERO (PÁGINA INICIAL)                                              */
+/* ---------------------------------------------------------------------- */
+/* Seção de destaque da home, com layout responsivo e foco visual.        */
+/* Bloco arredondado com gradiente e caixa interna mais clara.            */
+/* ====================================================================== */
+.hero {
+  background: linear-gradient(135deg, #ffb6c1, #ff5f8d);
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* Caixa interna com fundo claro e bordas arredondadas */
+.hero-inner {
+  background: rgba(255, 255, 255, 0.78);
+  color: #333;
+  padding: 24px 40px;
+  border-radius: 24px;
+  display: inline-block;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.hero-inner h1 {
+  margin-bottom: 8px;
+}
+
+.hero-inner p {
+  margin-bottom: 20px;
+}
+
+
+/* ====================================================================== */
+/* 6. BOTÕES PADRÃO                                                      */
+/* ---------------------------------------------------------------------- */
+/* Botão principal do site, com transição suave e destaque no hover.      */
+/* Usado em chamadas de ação gerais.                                      */
+/* ====================================================================== */
+.btn-primary {
+  display: inline-block;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: #ff4b7c;
+  transform: scale(1.05);
+}
+
+
+/* ====================================================================== */
+/* 7. FORMULÁRIOS                                                         */
+/* ---------------------------------------------------------------------- */
+/* Campos de formulário com espaçamento correto, foco suave e             */
+/* consistência visual em toda a aplicação.                               */
+/* ====================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* Destaque do campo ativo */
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 4px var(--primary);
+}
+
+
+/* ====================================================================== */
+/* 8. GRID DE PRODUTOS — CARDÁPIO                                        */
+/* ---------------------------------------------------------------------- */
+/* Grade geral dos produtos exibidos no catálogo.                         */
+/* 4 colunas fixas no desktop com espaçamento uniforme.                   */
+/* ====================================================================== */
+
+/* GRID principal */
+#produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* grade com 4 colunas */
+  gap: 28px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 10px auto 0;
+}
+
+/* Card base dos produtos */
+.product-card {
+  width: 260px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+/* Efeito sutil no hover */
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Imagem do produto */
+.product-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+
+/* Títulos */
+.product-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* Descrição */
+.product-card p {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Preço destacado */
+.product-card .price {
+  color: var(--primary-dark);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Área de favorito */
+.fav-area {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #ff5191;
+  background: #fff0f7;
+  cursor: pointer;
+}
+
+.fav-area:hover {
+  background: #ffd6e8;
+}
+
+/* Controle de quantidade (− 1 +) */
+.box-qtd {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+/* Botões + e − */
+.btnMenos,
+.btnMais {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--secondary);
+  color: var(--primary-dark);
+  font-weight: bold;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btnMenos:hover,
+.btnMais:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Botão adicionar ao carrinho */
+.btn-add {
+  margin-top: 10px;
+  padding: 12px 26px;
+  border-radius: 25px;
+}
+
+/* ====================================================================== */
+/* 9. FILTROS DO CARDÁPIO — BUSCA + SELECT                               */
+/* ---------------------------------------------------------------------- */
+/* Área de filtros acima do cardápio.                                    */
+/* Inclui campo de busca e select de categoria.                          */
+/* ====================================================================== */
+
+#filtros {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto 30px;
+  width: 100%;
+  max-width: 950px; /* largura alinhada com ~3 cards */
+}
+
+/* Campo de busca maior */
+#filtros input[type="text"] {
+  flex: 1 1 70%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  outline: none;
+  transition: 0.2s;
+}
+
+#filtros input[type="text"]:focus {
+  border-color: #ff8fab;
+  box-shadow: 0 0 4px #ffd6e3;
+}
+
+/* Select de filtro */
+#filtros select {
+  flex: 1 1 30%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.2s;
+}
+
+#filtros select:hover {
+  border-color: #ff8fab;
+}
+
+/* Evita quebra estranha no layout */
+#filtros * {
+  min-width: 150px;
+}
+
+
+/* ====================================================================== */
+/* 10. TABELAS (ADMIN / HISTÓRICO / BASE CARRINHO)                        */
+/* ---------------------------------------------------------------------- */
+/* Estrutura padrão das tabelas usadas em diferentes telas.               */
+/* ====================================================================== */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Cabeçalho */
+thead {
+  background: var(--secondary);
+}
+
+/* Células */
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: var(--text);
+  font-weight: 600;
+}
+
+
+/* ====================================================================== */
+/* 11. CARRINHO — TABELA + RESUMO                                        */
+/* ---------------------------------------------------------------------- */
+/* Layout do carrinho de compras, incluindo tabela de itens,              */
+/* controles de quantidade e resumo final.                                */
+/* ====================================================================== */
+
+/* Centralização geral */
+main.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Imagem dos itens do carrinho */
+#tabelaCarrinho img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Caixa de quantidade */
+.quantidade-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Botões + e − dentro do carrinho */
+.btnQtd {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnQtd:hover {
+  background: var(--primary-dark);
+}
+
+/* Botão remover item */
+.btnRemover {
+  background: var(--primary-dark);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btnRemover:hover {
+  background: #ff4b7c;
+}
+
+/* Linha para carrinho vazio */
+.empty-row td {
+  padding: 24px 0;
+  text-align: center;
+  color: #777;
+  background: #fff;
+}
+
+/* Resumo ao final do carrinho */
+.cart-summary {
+  width: 100%;
+  max-width: 550px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 22px 26px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.cart-summary h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.cart-summary h2 {
+  margin: 6px 0;
+}
+
+/* Indicação visual de desconto aplicado */
+.discount-applied {
+  color: #2ecc71;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Caixa para aplicar cupom */
+.cupom-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cupom-box input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 200px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.cupom-box input:focus {
+  border-color: #ff8fab;
+}
+
+/* Botão aplicar cupom */
+.cupom-box button {
+  border-radius: 8px;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cupom-box button:hover {
+  background: #ff4b7c;
+}
+
+/* Estilo dos valores finais */
+.total-valor {
+  color: #0077ff;
+}
+
+.total-linha {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* ====================================================================== */
+/* 12. FOOTER GLOBAL                                                      */
+/* ---------------------------------------------------------------------- */
+/* Rodapé padrão do site.                                                 */
+/* Usa ::before para mostrar o texto sem precisar modificar o HTML.       */
+/* ====================================================================== */
+.footer {
+  background: var(--card-bg);
+  text-align: center;
+  padding: 12px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+}
+
+.footer p {
+  margin: 0;
+  text-align: center;
+  font-size: 0; /* oculta texto visualmente mantendo estrutura */
+}
+
+/* Texto inserido via pseudo-elemento */
+.footer p::before {
+  content: "© 2025 Cupcake Store. Todos os direitos reservados.";
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+
+/* ====================================================================== */
+/* 13. FAVORITOS — MESMO LAYOUT DO CARDÁPIO                               */
+/* ---------------------------------------------------------------------- */
+/* Grade de favoritos, reutiliza card de produto com pequenas variações.  */
+/* ====================================================================== */
+
+#listaFavoritos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 30px;
+}
+
+/* Card estruturado igual ao produto */
+#listaFavoritos .product-card {
+  flex: 1 1 250px;
+  max-width: 260px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+#listaFavoritos .product-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 10px;
+}
+
+#listaFavoritos .product-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+#listaFavoritos .product-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+#listaFavoritos .product-card .price {
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+/* Botão remover favorito */
+#listaFavoritos .btn-remover-favorito {
+  margin-top: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: #ffccd5;
+  color: #c2185b;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+#listaFavoritos .btn-remover-favorito:hover {
+  background: #ff8fab;
+  color: #fff;
+}
+
+
+/* ====================================================================== */
+/* 14. LOGIN / REGISTRO / RECUPERAR SENHA                                 */
+/* ---------------------------------------------------------------------- */
+/* Telas de autenticação: página clara com card central animado.          */
+/* ====================================================================== */
+
+.login-page,
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: calc(100vh - 90px); /* navbar + footer */
+  background: linear-gradient(180deg, #fff8f9, #ffe6ec);
+}
+
+/* Estrutura do card */
+.login-card,
+.register-card {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeIn 0.4s ease;
+}
+
+.login-card h2,
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+/* Grupo de campo */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.field input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* Focus */
+.field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 4px #ffb6c9;
+}
+
+.btn-secondary {
+  background: #777;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #555;
+}
+
+.btn-finalizar {
+  padding: 12px 28px;
+}
+
+/* Botões principais */
+.login-card button,
+.register-card button {
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.login-card button:hover,
+.register-card button:hover {
+  background: #ff4b7c;
+}
+
+.login-card p,
+.register-card p {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.login-card a,
+.register-card a {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.buttons-final {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+/* ====================================================================== */
+/* 15. ADMIN / DASHBOARD (BÁSICO)                                         */
+/* ---------------------------------------------------------------------- */
+/* Versão simples do painel administrativo (modo claro).                  */
+/* Estrutura de grid com sidebar fixa e conteúdo ao lado.                 */
+/* ====================================================================== */
+.admin-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+}
+
+.sidebar {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 20px;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  margin-bottom: 12px;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  margin-bottom: 4px;
+  transition: var(--transition);
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.admin-content {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+
+/* ====================================================================== */
+/* 16. ANIMAÇÃO BÁSICA (FADE IN)                                          */
+/* ---------------------------------------------------------------------- */
+/* Animação usada em cards e elementos que aparecem suavemente.           */
+/* ====================================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ====================================================================== */
+/* 17. RESPONSIVIDADE (APENAS QUEBRA BÁSICA)                              */
+/* ---------------------------------------------------------------------- */
+/* Ajustes gerais para telas menores: organização do grid, navbar, etc.   */
+/* ====================================================================== */
+@media (max-width: 1024px) {
+  #produtos {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #produtos {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  #produtos {
+    grid-template-columns: 1fr;
+  }
+
+  #filtros {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+
+/* ====================================================================== */
+/* HISTÓRICO DE PEDIDOS — FULL WIDTH                                      */
+/* ---------------------------------------------------------------------- */
+/* Estilo dos cards do histórico, com layout expandido e hover suave.     */
+/* ====================================================================== */
+
+.historico-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pedido-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  padding: 24px 30px;
+  margin-bottom: 24px;
+  transition: 0.25s ease;
+}
+
+.pedido-card:hover {
+  transform: translateY(-4px);
+}
+
+.pedido-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.pedido-header span {
+  font-weight: 400;
+  color: #666;
+}
+
+.pedido-itens {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.hint-endereco {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.hint-endereco span {
+  display: block;
+  margin-left: 18px; /* alinhamento com ícone */
+  color: #ff4b7c;
+  font-size: 0.8rem;
+}
+
+/* Visualizar senha durante login */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.toggle-eye:hover {
+  opacity: 1;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Cupons 🎟️</title>
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <!-- CSS global da loja -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- CSS específico do painel admin -->
+  <link rel="stylesheet" href="../../css/style-admin.css">
+
+  <!-- Gate simples: só permite admin logado acessar -->
+  <script>
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario || usuario.nivel !== "admin") {
+      alert("Acesso negado. Somente administradores podem entrar aqui.");
+      window.location.href = "../login.html";
+    }
+  </script>
+</head>
+
+<body class="admin-body admin-cupoms-page">
+
+  <!-- Header do painel admin -->
+  <header class="navbar admin-navbar">
+    <div class="logo">Cupcake Store — ADMIN</div>
+    <nav id="menuAdmin">
+      <a href="admin-dashboard.html" id="link-dashboard">📊 Dashboard</a>
+      <a href="admin-cupoms.html" id="link-cupons">🎟️ Cupons</a>
+      <a href="admin-usuarios.html" id="link-usuarios">👥 Usuários</a>
+      <a href="admin-produtos.html" id="link-produtos">🧁 Produtos</a>
+      <a href="admin-historicos.html" id="link-historico">📜 Histórico</a>
+      <a href="admin.html" class="logout-link">↩️ Voltar ao Painel Admin</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal da página de cupons -->
+  <main class="admin-main">
+    <div class="admin-page-wrapper">
+      <h1 class="admin-title">Cupons Promocionais 🎟️</h1>
+
+      <div class="admin-panel">
+        <!-- Botão para criar novo cupom -->
+        <button class="btn-admin btn-admin-add" id="novoCupom">+ Adicionar Cupom</button>
+
+        <!-- Tabela de cupons (preenchida via JS) -->
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Código</th>
+              <th>Desconto (%)</th>
+              <th>Mínimo (R$)</th>
+              <th>Validade</th>
+              <th>Ativo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaCupom"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer global reutilizado do site -->
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+  <!-- Marca o menu atual como ativo -->
+  <script>
+    document.getElementById("link-cupons")?.classList.add("active");
+  </script>
+
+  <!-- Lógica da página de cupons (CRUD / fetch API) -->
+  <script src="../../js/admin/admin-cupoms.js"></script>
+
+</body>
+</html>

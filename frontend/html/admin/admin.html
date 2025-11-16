@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Configuração básica do documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Admin - Cupcake Store 🧁</title>
+
+  <!-- Favicon da área admin -->
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <!-- CSS global da loja (não tem CSS admin aqui, pois a tela é um "hub") -->
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    /* Estilo específico do painel principal admin (dashboard de navegação) */
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header.navbar {
+      background: #1b1b1b;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-weight: 600;
+      color: #ffb6c1;
+      font-size: 1.3rem;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #ff5f8d;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #ff90ac;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .admin-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .admin-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(255, 111, 150, 0.4);
+    }
+
+    .admin-card img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .admin-card h3 {
+      color: #ff5f8d;
+      margin-bottom: 8px;
+    }
+
+    .admin-card p {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    footer.footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 1px solid #222;
+    }
+  </style>
+
+  <script>
+    // Checagem simples de permissão com base em dados locais.
+    // Importante: isso não substitui validação no backend.
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario || usuario.nivel !== "admin") {
+      alert("Acesso negado. Somente administradores podem entrar aqui.");
+      window.location.href = "../login.html";
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Cabeçalho minimalista do painel admin -->
+  <header class="navbar">
+    <div class="logo">Cupcake Store 🍰</div>
+    <a href="../index.html" class="back-link">🏠 Voltar à Loja</a>
+  </header>
+
+  <main>
+    <!-- Grade de atalhos para as seções do painel admin -->
+    <div class="admin-grid">
+      <div class="admin-card" onclick="abrirSecao('dashboard')">
+        <img src="../../assets/img/admin/dashboard.png" alt="Dashboard">
+        <h3>DASHBOARD</h3>
+        <p>Visão geral dos números da loja.</p>
+      </div>
+
+      <div class="admin-card" onclick="abrirSecao('cupons')">
+        <img src="../../assets/img/admin/cupom.png" alt="Cupons">
+        <h3>CUPONS</h3>
+        <p>Gerencie códigos promocionais.</p>
+      </div>
+
+      <div class="admin-card" onclick="abrirSecao('usuarios')">
+        <img src="../../assets/img/admin/users.png" alt="Usuários">
+        <h3>USUÁRIOS</h3>
+        <p>Controle contas e permissões.</p>
+      </div>
+
+      <div class="admin-card" onclick="abrirSecao('produtos')">
+        <img src="../../assets/img/admin/produtos.png" alt="Produtos">
+        <h3>PRODUTOS</h3>
+        <p>Adicione e atualize cupcakes.</p>
+      </div>
+
+      <div class="admin-card" onclick="abrirSecao('historico')">
+        <img src="../../assets/img/admin/historico.png" alt="Histórico">
+        <h3>HISTÓRICOS</h3>
+        <p>Acompanhe pedidos e vendas.</p>
+      </div>
+
+      <div class="admin-card" onclick="abrirSecao('fornecedores')">
+        <img src="../../assets/img/admin/tool.png" alt="fornecedores">
+        <h3>FORNECEDORES</h3>
+        <p>Controlar compras, datas, preços, contatos, notas..</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Roteador simples baseado em string da seção
+    function abrirSecao(secao) {
+      switch (secao) {
+        case "dashboard":
+          window.location.href = "admin-dashboard.html";
+          break;
+
+        case "cupons":
+          window.location.href = "admin-cupoms.html";
+          break;
+
+        case "usuarios":
+          window.location.href = "admin-usuarios.html";
+          break;
+
+        case "produtos":
+          window.location.href = "admin-produtos.html";
+          break;
+
+        case "historico":
+          window.location.href = "admin-historicos.html";
+          break;
+
+        case "fornecedores":
+          // Placeholder para módulo futuro
+          alert("EM BREVE... O módulo ainda está em construção!");
+          break;
+
+        default:
+          // Log defensivo para facilitar debug caso apareça uma opção inválida
+          console.warn("Seção desconhecida:", secao);
+      }
+    }
+  </script>
+
+  <!-- ⚠️ Este script é específico da tela de usuários.
+       Aqui ele é desnecessário e pode ser removido para evitar carregamento extra. -->
+  <script src="../../js/admin/admin-usuarios.js"></script>
+
+  <footer class="footer">
+    <p></p>
+  </footer>
+</body>
+</html>

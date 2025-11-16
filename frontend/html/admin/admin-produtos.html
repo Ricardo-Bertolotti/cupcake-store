@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Produtos 🧁</title>
+
+  <!-- Ícone da aba -->
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <!-- CSS global + admin para manter padronização visual -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style-admin.css">
+
+  <style>
+    /* Ajuste local da largura do painel para lista de produtos */
+    .admin-produtos-page .admin-panel {
+      max-width: 1200px;
+    }
+
+    /* Coluna de ações mais espaçosa nesta tela */
+    .admin-produtos-page .admin-table th:last-child,
+    .admin-produtos-page .admin-table td:last-child {
+      width: 160px;
+      text-align: center;
+    }
+
+    /* Botões organizados verticalmente na coluna "Ações" */
+    .admin-produtos-page .admin-table td:last-child .btn-admin {
+      display: block;
+      width: 100%;
+      margin: 4px 0;
+    }
+  </style>
+
+  <script>
+    /* Verificação simples via localStorage.
+       Impede acesso visual, mas não substitui validação real no backend. */
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario || usuario.nivel !== "admin") {
+      alert("Acesso negado. Somente administradores podem entrar aqui.");
+      window.location.href = "../login.html";
+    }
+  </script>
+</head>
+
+<body class="admin-body admin-produtos-page">
+
+  <!-- Barra superior do painel admin -->
+  <header class="navbar admin-navbar">
+    <div class="logo">Cupcake Store — ADMIN</div>
+
+    <!-- Navegação entre módulos -->
+    <nav id="menuAdmin">
+      <a href="admin-dashboard.html" id="link-dashboard">📊 Dashboard</a>
+      <a href="admin-cupoms.html" id="link-cupons">🎟️ Cupons</a>
+      <a href="admin-usuarios.html" id="link-usuarios">👥 Usuários</a>
+      <a href="admin-produtos.html" id="link-produtos">🧁 Produtos</a>
+      <a href="admin-historicos.html" id="link-historico">📜 Histórico</a>
+      <a href="admin.html" class="logout-link">↩️ Voltar ao Painel Admin</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-page-wrapper">
+
+      <!-- Título da seção -->
+      <h1 class="admin-title">Gerenciamento de Produtos 🧁</h1>
+
+      <div class="admin-panel">
+
+        <!-- Abertura de modal ou formulário via JS -->
+        <button class="btn-admin btn-admin-add" id="novoProduto">
+          + Adicionar Produto
+        </button>
+
+        <!-- Tabela preenchida dinamicamente pelo JavaScript -->
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Preço</th>
+              <th>Descrição</th>
+              <th>Imagem (URL)</th>
+              <th>Quantidade</th>
+              <th>Ativo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaProdutos"></tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+  <script>
+    /* Marca o menu ativo visualmente */
+    document.getElementById("link-produtos")?.classList.add("active");
+  </script>
+
+  <!-- Script responsável por carregar e manipular os produtos -->
+  <script src="../../js/admin/admin-produtos.js"></script>
+
+</body>
+</html>

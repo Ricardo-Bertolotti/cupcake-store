@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Registrar - Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+</head>
+
+<body>
+
+  <!-- Navbar minimalista para páginas públicas -->
+  <header class="navbar">
+    <div class="logo">Cupcake Store 🧁</div>
+
+    <nav>
+      <a href="index.html">Loja</a>
+      <a href="login.html">Login</a>
+      <a href="registro.html" class="active">Registrar</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal do cadastro -->
+  <main class="register-page">
+
+    <form class="register-card" id="formRegistro">
+      <h2>Criar conta</h2>
+
+      <!-- Nome completo -->
+      <div class="field">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome completo" required />
+      </div>
+
+      <!-- Email do usuário -->
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite seu email" required />
+      </div>
+
+      <!-- Senha -->
+      <div class="field">
+        <label for="senha">Senha</label>
+
+        <div class="password-wrapper">
+          <input type="password" id="senha" placeholder="Crie uma senha" required />
+          <span id="togglePass" class="toggle-eye">👁️</span>
+        </div>
+      </div>
+
+      <!-- Endereço é opcional aqui -->
+      <div class="field">
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" placeholder="Ex.: Rua dos Cupcakes, 77" />
+      </div>
+
+      <!-- Botão de envio -->
+      <button type="submit">Registrar</button>
+
+      <p>
+        Já tem conta?
+        <a href="login.html">Entrar</a>
+      </p>
+    </form>
+
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <p>Feito com 💜 por RB7</p>
+  </footer>
+
+  <!-- Script de cadastro -->
+  <script src="../js/registro.js"></script>
+
+</body>
+</html>

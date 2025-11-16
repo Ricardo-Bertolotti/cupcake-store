@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Login - Cupcake Store 🧁</title>
+
+  <!-- Favicon + CSS principal -->
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar simples para contexto de autenticação -->
+  <header class="navbar">
+    <div class="logo">Cupcake Store 🧁</div>
+
+    <nav>
+      <a href="index.html">Loja</a>
+      <a href="login.html" class="active">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Card compacto (boa UX para login/cadastro) -->
+    <section class="card" style="max-width:400px; margin:auto;">
+
+      <h2>Entrar</h2>
+
+      <!-- Formulário de login -->
+      <form id="formLogin">
+        <label>Email
+          <input type="email" id="emailLogin" required />
+        </label>
+
+        <label>Senha
+          <input type="password" id="senhaLogin" required />
+        </label>
+
+        <button type="submit" class="btn-primary full">Entrar</button>
+      </form>
+
+      <!-- Link para abrir form de cadastro -->
+      <p style="text-align:center; margin-top:10px;">
+        Não tem conta?
+        <a href="#" id="linkCadastro">Cadastre-se</a>
+      </p>
+
+      <!-- Formulário de cadastro (escondido por padrão) -->
+      <form id="formCadastro" style="display:none; margin-top:20px;">
+        <h3>Criar conta</h3>
+
+        <label>Nome
+          <input type="text" id="nomeCadastro" required />
+        </label>
+
+        <label>Email
+          <input type="email" id="emailCadastro" required />
+        </label>
+
+        <label>Senha
+          <input type="password" id="senhaCadastro" required />
+        </label>
+
+        <button type="submit" class="btn-primary full">Registrar</button>
+      </form>
+
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+  <!-- Script de autenticação -->
+  <script src="js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Recuperar Senha - Cupcake Store</title>
+
+  <!-- Favicon + CSS global -->
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar simples para área de autenticação -->
+  <header class="navbar">
+    <div class="logo">Cupcake Store 🧁</div>
+
+    <nav>
+      <a href="index.html">Loja</a>
+      <a href="login.html">Login</a>
+      <a href="registro.html">Registrar</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="login-page recover">
+
+    <!-- Card do formulário -->
+    <form class="login-card" id="formRecuperar">
+      <h2>Recuperar senha</h2>
+
+      <!-- Campo de email -->
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Digite seu email"
+          required
+        />
+      </div>
+
+      <!-- Enviar solicitação -->
+      <button type="submit">Enviar link</button>
+
+      <!-- Link de retorno -->
+      <p>
+        <a href="login.html">Voltar ao login</a>
+      </p>
+    </form>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+  <!-- Script do processo de recuperação -->
+  <script src="../js/recuperar.js"></script>
+
+</body>
+</html>

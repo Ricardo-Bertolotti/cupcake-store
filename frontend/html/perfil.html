@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Perfil 👤 - Cupcake Store</title>
+
+  <!-- Estilos globais + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <style>
+    /* Layout geral da página de perfil */
+    .perfil-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 120px);
+      background: linear-gradient(180deg, #fff8f9, #ffe6ec);
+    }
+
+    /* Card central com dados editáveis */
+    .perfil-card {
+      background: #fff;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 32px;
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .perfil-card h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Campos organizados verticalmente */
+    .perfil-card .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .perfil-card label {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* Inputs padrões redondos */
+    .perfil-card input {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+
+    .perfil-card input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px #ffd6e3;
+    }
+
+    /* Botões principais */
+    .perfil-card button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-salvar {
+      background: var(--primary-dark);
+      color: #fff;
+    }
+
+    .btn-salvar:hover {
+      background: #ff4b7c;
+    }
+
+    /* Botão de logout */
+    .btn-logout {
+      background: #fff;
+      color: #ff6b6b;
+      border: 1px solid #ffb3b3;
+    }
+
+    .btn-logout:hover {
+      background: #ffe5e5;
+    }
+
+    /* Animação para o card */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar padrão -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <nav id="menuNav">
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html">🧁 Cardápio</a>
+    <a href="favoritos.html">💖 Favoritos</a>
+    <a href="cupom.html">🎟️ Cupons</a>
+    <a href="historico.html">🧾 Histórico</a>
+    <a href="carrinho.html">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html" class="active">👤 Perfil</a>
+  </nav>
+</header>
+
+<main class="perfil-page">
+
+  <!-- Form principal do perfil -->
+  <form class="perfil-card" id="formPerfil">
+
+    <h2>Meu Perfil</h2>
+
+    <!-- Nome -->
+    <div class="field">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" required />
+    </div>
+
+    <!-- Email: desabilitado para evitar manipulação -->
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" required disabled />
+    </div>
+
+    <!-- Campo de endereço com aviso -->
+    <div class="hint-endereco">
+      ⚠️ Preencha seu endereço completo:<br>
+      <span>Rua, número e referência</span>
+    </div>
+
+    <label for="endereco">Endereço</label>
+    <input type="text" id="endereco" name="endereco" />
+
+    <!-- Senha opcional -->
+    <div class="field">
+      <label for="senha">Senha</label>
+
+      <div class="password-wrapper">
+        <input type="password" id="senha" placeholder="Nova senha (opcional)" />
+        <span id="togglePassPerfil" class="toggle-eye">👁️</span>
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <button type="submit" class="btn-salvar">Salvar alterações</button>
+    <button type="button" id="btnLogout" class="btn-logout">Sair da conta</button>
+
+  </form>
+</main>
+
+<!-- Rodapé -->
+<footer class="footer">
+  <p></p>
+</footer>
+
+<!-- Script de lógica do perfil -->
+<script src="../js/perfil.js"></script>
+
+</body>
+</html>

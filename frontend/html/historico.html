@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações básicas -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Histórico de Pedidos 🧾 - Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <style>
+    /* Container onde os cards de pedidos serão renderizados */
+    #listaPedidos {
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 25px;
+    }
+
+    /* Card visual do pedido */
+    .pedido-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      padding: 20px 26px;
+      margin-bottom: 20px;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .pedido-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+    }
+
+    /* Cabeçalho do card (ID + data + total) */
+    .pedido-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .pedido-header span {
+      font-weight: 400;
+      color: #666;
+    }
+
+    /* Lista de itens do pedido (expandível via JS) */
+    .pedido-itens {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      display: none;                /* Esconde os itens até o usuário clicar */
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .pedido-itens ul {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+
+    /* Animação suave ao abrir detalhes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar padrão -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <nav id="menuNav">
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html">🧁 Cardápio</a>
+    <a href="favoritos.html">💖 Favoritos</a>
+    <a href="cupom.html">🎟️ Cupons</a>
+    <a href="historico.html" class="active">🧾 Histórico</a>
+    <a href="carrinho.html">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html">👤 Perfil</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Título -->
+  <h2 style="text-align:center; margin-top:20px;">Histórico de Pedidos</h2>
+
+  <!-- Wrapper onde os pedidos serão renderizados dinamicamente -->
+  <div class="historico-wrapper" id="listaPedidos"></div>
+</main>
+
+<!-- Rodapé -->
+<footer class="footer">
+  <p>Feito com 💜 por RB7</p>
+</footer>
+
+<!-- Script que carrega e cria os cards de histórico -->
+<script src="../js/historico.js"></script>
+
+</body>
+</html>

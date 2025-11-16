@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Loja Cupcake Store</title>
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <!-- CSS principal da loja + tema admin -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style-admin.css">
+
+  <!-- Chart.js para os gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Proteção simples de rota (front) -->
+  <script>
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario || usuario.nivel !== "admin") {
+      alert("Acesso negado. Apenas administradores.");
+      window.location.href = "../login.html";
+    }
+  </script>
+
+  <!-- Estilos específicos do dashboard (pontuais) -->
+  <style>
+    .grafico-status-wrapper {
+      max-width: 1000px;
+      max-height: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    #legendaStatus {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 1rem;
+      color: #fff;
+      min-width: 160px;
+    }
+
+    .legenda-direita {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .dash-section h3 {
+      color: #ffffff;
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      width: 100%;
+    }
+
+    .dash-section {
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid #ff4fa180;
+      box-shadow: 0 0 10px #ff4fa155;
+      color: #f0f0f0;
+    }
+
+    .column-block {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .dash-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 15px;
+      border: 1px solid #ff4fa170;
+      box-shadow: 0 0 10px #ff4fa133;
+      text-align: center;
+      color: #f0f0f0;
+    }
+
+    .dash-card h2 {
+      color: #ff7ac5;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    /* Cards full-width dentro da grid */
+    .wide {
+      grid-column: 1 / 4;
+    }
+
+    /* Força tamanho dos canvases dos gráficos */
+    canvas {
+      width: 100% !important;
+      height: 330px !important;
+    }
+
+    /* Título maior dentro da grid */
+    .titulo-dashboard {
+      grid-column: 1 / 4;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 2.6rem;
+      color: #ff8ad4;
+      text-shadow: 0 0 12px #ff4fa155;
+    }
+  </style>
+
+</head>
+
+<body class="admin-body admin-dashboard-page">
+
+  <!-- Navbar do painel admin -->
+  <header class="navbar admin-navbar">
+    <div class="logo">Cupcake Store — ADMIN</div>
+    <nav id="menuAdmin">
+      <a href="admin-dashboard.html" id="link-dashboard">📊 Dashboard</a>
+      <a href="admin-cupoms.html">🎟️ Cupons</a>
+      <a href="admin-usuarios.html">👥 Usuários</a>
+      <a href="admin-produtos.html">🧁 Produtos</a>
+      <a href="admin-historicos.html">📜 Histórico</a>
+      <a href="admin.html" class="logout-link">↩️ Voltar</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal do dashboard -->
+  <main class="admin-main">
+
+    <div class="dash-grid">
+
+      <!-- Título geral do dashboard -->
+      <h1 class="admin-title titulo-dashboard">📊 Dashboard — Visão geral da loja 📊</h1>
+
+      <!-- Coluna 1: blocos de vendas / KPIs gerais -->
+      <section id="card-geral" class="dash-section column-block">
+        <h3 class="titulo-coluna">Vendas</h3>
+        <!-- cards preenchidos via JS -->
+      </section>
+
+      <!-- Coluna 2: blocos de produtos -->
+      <section id="card-produtos" class="dash-section column-block">
+        <h3 class="titulo-coluna">Produtos</h3>
+        <!-- cards preenchidos via JS -->
+      </section>
+
+      <!-- Coluna 3: blocos de cupons -->
+      <section id="card-cupons" class="dash-section column-block">
+        <h3 class="titulo-coluna">Cupons</h3>
+        <!-- cards preenchidos via JS -->
+      </section>
+
+      <!-- Gráfico de status de pedidos -->
+      <section class="dash-section wide">
+        <h3>Status dos Pedidos</h3>
+
+        <div class="grafico-status-wrapper">
+          <canvas id="grafStatus"></canvas>
+          <!-- legenda gerada dinamicamente -->
+          <div class="legenda-direita" id="legendaStatus"></div>
+        </div>
+      </section>
+
+      <!-- Gráfico de vendas por dia -->
+      <section class="dash-section wide">
+        <h3>Vendas por Dia</h3>
+        <canvas id="grafVendas"></canvas>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Marca o menu atual como ativo -->
+  <script>
+    document.getElementById("link-dashboard").classList.add("active");
+  </script>
+
+  <!-- Lógica JS do dashboard (requisições + gráficos) -->
+  <script src="../../js/admin/admin-dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+  <!-- Footer global -->
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+</body>
+</html>

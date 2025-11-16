@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Usuários 👥</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <!-- CSS global + admin -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style-admin.css">
+
+  <style>
+    /* Ajustes específicos apenas para esta página */
+
+    /* Coluna de ações configurada como flex para organizar os botões */
+    .admin-users-page .admin-table td:last-child {
+      display: flex;
+      justify-content: center;
+      gap: 6px;                 /* espaçamento mínimo entre botões */
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* Botões mais compactos, sem margens extras */
+    .admin-users-page .admin-table td:last-child .btn-admin {
+      margin: 0;
+      padding: 6px 10px;
+      width: auto;
+    }
+  </style>
+
+  <script>
+    /* Validação simples via localStorage.
+       Garante bloqueio visual, mas backend ainda precisa validar permissões. */
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario || usuario.nivel !== "admin") {
+      alert("Acesso negado. Apenas administradores podem entrar aqui.");
+      window.location.href = "../login.html";
+    }
+  </script>
+
+</head>
+
+<body class="admin-body admin-users-page">
+
+  <!-- Cabeçalho padrão do admin -->
+  <header class="navbar admin-navbar">
+    <div class="logo">Cupcake Store — ADMIN</div>
+
+    <nav id="menuAdmin">
+      <a href="admin-dashboard.html">📊 Dashboard</a>
+      <a href="admin-cupoms.html">🎟️ Cupons</a>
+      <a href="admin-usuarios.html" id="link-usuarios">👥 Usuários</a>
+      <a href="admin-produtos.html">🧁 Produtos</a>
+      <a href="admin-historicos.html">📜 Histórico</a>
+      <a href="admin.html" class="logout-link">↩️ Voltar ao Painel Admin</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-page-wrapper">
+
+      <!-- Título -->
+      <h1 class="admin-title">Gerenciamento de Usuários 👥</h1>
+
+      <div class="admin-panel">
+
+        <!-- Botão que dispara modal/form pelo JS -->
+        <button class="btn-admin btn-admin-add" id="novoUsuario">
+          + Adicionar Usuário
+        </button>
+
+        <!-- Tabela preenchida dinamicamente com os dados do backend -->
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Nível</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaUsuarios"></tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+  <script>
+    /* Destaca visualmente o menu ativo */
+    document.getElementById("link-usuarios")?.classList.add("active");
+  </script>
+
+  <!-- Script responsável por listar usuários e gerenciar ações -->
+  <script src="../../js/admin/admin-usuarios.js"></script>
+
+</body>
+</html>

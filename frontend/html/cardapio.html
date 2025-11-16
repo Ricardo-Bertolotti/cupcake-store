@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações básicas da página -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardápio 🧁 - Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <style>
+    /* Estilos específicos deste layout */
+
+    h1.page-title {
+      text-align: center;
+      margin-top: 40px;
+      color: #ff4b7c;
+      font-size: 2rem;
+    }
+
+    h2.section-title {
+      text-align: center;
+      color: #333;
+      margin: 30px 0 10px;
+    }
+
+    /* Animação simples de entrada */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar principal da loja -->
+<header class="navbar">
+  <div class="logo">🧁 Cupcake Store</div>
+
+  <!-- Navegação entre páginas da loja -->
+  <nav id="menuNav">
+    <a href="index.html">🏠 Início</a>
+    <a href="cardapio.html" class="active">🧁 Cardápio</a>
+    <a href="favoritos.html">💖 Favoritos</a>
+    <a href="cupom.html">🎟️ Cupons</a>
+    <a href="historico.html">🧾 Histórico</a>
+    <a href="carrinho.html">🛒 Carrinho</a>
+    <a href="checkout.html">💳 Checkout</a>
+    <a href="perfil.html">👤 Perfil</a>
+  </nav>
+</header>
+
+<main class="container">
+  
+  <!-- Títulos da página -->
+  <h1 class="page-title">Nosso Cardápio de Cupcakes 🧁</h1>
+  <h2 class="section-title">Escolha o seu sabor favorito</h2>
+
+  <!-- Área de filtros: busca + ordenação -->
+  <div id="filtros">
+    <input type="text" id="buscaProduto" placeholder="🔍 Buscar cupcake..." />
+
+    <select id="filtroPreco">
+      <option value="">Ordenar por…</option>
+      <option value="asc">Preço: menor → maior</option>
+      <option value="desc">Preço: maior → menor</option>
+      <option value="az">Nome: A → Z</option>
+      <option value="za">Nome: Z → A</option>
+    </select>
+  </div>
+
+  <!-- Grid onde os produtos serão inseridos dinamicamente via JS -->
+  <div id="produtos" class="products-grid" style="animation:fadeIn 0.7s;"></div>
+</main>
+
+<footer class="footer">
+  <p>Feito com 💜 por RB7</p>
+</footer>
+
+<!-- Script responsável por carregar produtos, filtrar e ordenar -->
+<script src="../js/loja.js"></script>
+
+</body>
+</html>

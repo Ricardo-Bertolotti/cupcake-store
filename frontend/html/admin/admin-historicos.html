@@ -1,0 +1,105 @@
+<!-- Estrutura base do painel admin. Mantém consistência visual com demais telas -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais de charset e responsividade -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título e favicon específicos da área admin -->
+  <title>Painel Admin - Histórico de Pedidos 📜</title>
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <!-- CSS global + CSS específico do admin para evitar conflito entre layouts -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style-admin.css">
+
+  <!-- Verificação simples de permissão via localStorage.
+       Apenas impede acesso básico; não substitui autenticação real. -->
+  <script>
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario || usuario.nivel !== "admin") {
+      alert("Acesso negado.");
+      window.location.href = "../login.html";
+    }
+  </script>
+
+  <style>
+    /* Ajuste local para campos da tabela de histórico.
+       Idealmente deveria ir para style-admin.css. */
+    .admin-historicos-page .admin-table td:last-child {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .admin-historicos-page .admin-table select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+
+<body class="admin-body admin-historicos-page">
+
+  <!-- Navbar padrão do admin com links diretos para os módulos -->
+  <header class="navbar admin-navbar">
+    <div class="logo">Cupcake Store — ADMIN</div>
+
+    <nav id="menuAdmin">
+      <a href="admin-dashboard.html">📊 Dashboard</a>
+      <a href="admin-cupoms.html">🎟️ Cupons</a>
+      <a href="admin-usuarios.html">👥 Usuários</a>
+      <a href="admin-produtos.html">🧁 Produtos</a>
+      <a href="admin-historicos.html" id="link-historico">📜 Histórico</a>
+      <a href="admin.html" class="logout-link">↩️ Voltar ao Painel Admin</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-page-wrapper">
+
+      <!-- Título da página -->
+      <h1 class="admin-title">Histórico de Pedidos 📜</h1>
+
+      <div class="admin-panel">
+
+        <!-- Tabela onde os pedidos serão injetados via JS -->
+        <table class="admin-table">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuário</th>
+                <th>Total (R$)</th>
+                <th>Forma de Pagamento</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody id="listaPedidos"></tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Rodapé vazio (mantém padrão das páginas admin) -->
+  <footer class="footer"></footer>
+
+  <script>
+    // Marca visualmente o menu ativo
+    document.getElementById("link-historico")?.classList.add("active");
+  </script>
+
+  <!-- Script responsável por carregar e manipular os pedidos -->
+  <script src="../../js/admin/admin-historicos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkout 💳 - Cupcake Store</title>
+
+  <!-- CSS global + favicon -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+
+  <style>
+    /* Caixa de resumo do pedido */
+    .resumo-pedido {
+      background: #fff8fa;
+      border: 1px solid #ffe0ea;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 18px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .resumo-pedido p {
+      margin: 6px 0;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    .resumo-pedido strong {
+      color: #ff4b7c;
+    }
+
+    .resumo-pedido hr {
+      border: none;
+      border-top: 1px solid #ffd6e0;
+      margin: 8px 0;
+    }
+
+    /* Botão de confirmar */
+    button[type="submit"] {
+      margin-top: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar padrão da loja -->
+  <header class="navbar">
+    <div class="logo">🧁 Cupcake Store</div>
+
+    <nav id="menuNav">
+      <a href="index.html">🏠 Início</a>
+      <a href="cardapio.html">🧁 Cardápio</a>
+      <a href="favoritos.html">💖 Favoritos</a>
+      <a href="cupom.html">🎟️ Cupons</a>
+      <a href="historico.html">🧾 Histórico</a>
+      <a href="carrinho.html">🛒 Carrinho</a>
+      <a href="checkout.html" class="active">💳 Checkout</a>
+      <a href="perfil.html">👤 Perfil</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="register-page">
+    <form class="register-card" id="formCheckout">
+
+      <h2>Finalizar Pedido</h2>
+
+      <!-- Resumo financeiro do pedido preenchido via JS -->
+      <div class="resumo-pedido">
+        <p><strong>Subtotal:</strong> R$ <span id="subtotal">0.00</span></p>
+        <p><strong>Frete:</strong> R$ <span id="frete">15.00</span></p>
+        <p><strong>Desconto:</strong> − R$ <span id="desconto">0.00</span></p>
+        <hr />
+        <p><strong>Total a pagar:</strong> R$ <span id="totalFinal">0.00</span></p>
+      </div>
+
+
+      <!-- Forma de pagamento -->
+      <div class="field">
+        <label for="pagamento">Forma de pagamento</label>
+        <select id="pagamento" required>
+          <option value="">Selecione...</option>
+          <option value="cartao">Cartão</option>
+          <option value="pix">PIX</option>
+          <option value="dinheiro">Dinheiro</option>
+        </select>
+      </div>
+
+      <!-- Aviso sobre endereço completo -->
+      <div class="field">
+        <label>⚠️ Preencha seu endereço completo:</label>
+        <small style="color:#ff4b7c; font-weight:600;">
+          Rua, número e referência
+        </small>
+      </div>
+
+      <!-- Campo de endereço -->
+      <div class="field">
+        <label for="endereco">Endereço de entrega</label>
+        <input
+          type="text"
+          id="endereco"
+          placeholder="Ex.: Rua dos Cupcakes, 77 - Ao lado da praça"
+          required
+        />
+      </div>
+      
+      <!-- Aviso sobre endereço completo -->
+      <div class="field">
+        <label>⚠️ O valor do frete é fixo na cidade:</label>
+        <small style="color:#ff4b7c; font-weight:600;">
+          R$ 15,00
+        </small>
+      </div>
+
+      <!-- Botão principal -->
+      <button type="submit">Confirmar pedido</button>
+
+    </form>
+  </main>
+
+  <!-- Rodapé global -->
+  <footer class="footer">
+    <p>Feito com 💜 por RB7</p>
+  </footer>
+
+  <!-- Script com a lógica do checkout -->
+  <script src="../js/checkout.js"></script>
+
+</body>
+</html>

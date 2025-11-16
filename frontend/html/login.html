@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Configurações essenciais -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login - Cupcake Store</title>
+
+  <!-- Favicon + CSS global -->
+  <link rel="icon" type="image/jpg" href="../assets/img/favicon-cupcake.jpg">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar simples para área pública -->
+  <header class="navbar">
+    <div class="logo">Cupcake Store 🧁</div>
+    <nav>
+      <a href="index.html">Loja</a>
+      <a href="login.html" class="active">Login</a>
+      <a href="registro.html">Registrar</a>
+    </nav>
+  </header>
+
+  <!-- Área principal de login -->
+  <main class="login-page">
+
+    <!-- Card do formulário -->
+    <form class="login-card" id="formLogin">
+      <h2>Entrar</h2>
+
+      <!-- Campo de email -->
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite seu email" required />
+      </div>
+
+      <!-- Campo de senha -->
+      <div class="field">
+        <label for="senha">Senha</label>
+
+        <div class="password-wrapper">
+          <input type="password" id="senha" placeholder="Digite sua senha" required />
+          <span id="togglePass" class="toggle-eye">👁️</span>
+        </div>
+      </div>
+
+      <!-- Botão principal -->
+      <button type="submit">Entrar</button>
+
+      <!-- Links úteis -->
+      <p>
+        Não tem conta?
+        <a href="registro.html">Cadastre-se</a><br />
+        <a href="recuperar.html">Esqueci minha senha</a>
+      </p>
+    </form>
+  </main>
+
+  <!-- Rodapé da loja -->
+  <footer class="footer">
+    <p></p>
+  </footer>
+
+  <!-- Script com a lógica de login -->
+  <script src="../js/login.js"></script>
+
+</body>
+</html>
